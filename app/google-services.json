@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604655366129",
+    "project_id": "logincliente-5145f",
+    "storage_bucket": "logincliente-5145f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604655366129:android:dbbfe52d20b907f0441e50",
+        "android_client_info": {
+          "package_name": "com.sabrina.logincliente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604655366129-6frmlir7dhiq1991v3dop8lo1fj6i48s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUFrtXQ_b-YA9nEpRRaDIBU2IYs93KVxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604655366129-6frmlir7dhiq1991v3dop8lo1fj6i48s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
