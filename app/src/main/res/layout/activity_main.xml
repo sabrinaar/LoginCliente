@@ -5,55 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
 
-        <ImageView
-            android:layout_width="500dp"
-            android:layout_height="350dp"
-            android:src="@drawable/image"
-            android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="@string/titulo_login"
-            android:textColor="#0d6e6a"
-            android:textSize="45dp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/iniciar_sesion"
-            android:textColor="#0d6e6a"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph" />
 
-        <Button
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/button"
-            android:text="@string/login_facebook"
-            android:textColor="#FFF"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button"
-            android:text="@string/login_telefono"
-            android:textColor="#FFF"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

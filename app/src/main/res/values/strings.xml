@@ -4,4 +4,8 @@
     <string name="iniciar_sesion">Iniciar sesión con:</string>
     <string name="login_facebook">Facebook</string>
     <string name="login_telefono">Número de teléfono</string>
+
+    <string name="facebook_app_id">292677292860521</string>
+    <string name="fb_login_protocol_scheme">fb292677292860521</string>
+
 </resources>
