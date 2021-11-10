@@ -86,8 +86,8 @@ class FragmentIngresarTelefono : Fragment() {
         }
 
         button_continuar_telefono.setOnClickListener {
-            progressBar_telefono.visibility = View.VISIBLE
             if (telefono_nro.text.isNotEmpty()) {
+                progressBar_telefono.visibility = View.VISIBLE
                 val tel_text = "+54"+telefono_nro.text.toString()
                 sendVerificationcode(tel_text)
             } else {

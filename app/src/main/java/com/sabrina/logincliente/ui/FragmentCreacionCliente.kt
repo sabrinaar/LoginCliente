@@ -21,4 +21,10 @@ class FragmentCreacionCliente : Fragment() {
         return inflater.inflate(R.layout.fragment_creacion_cliente, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //get data
+
+    }
+
 }
