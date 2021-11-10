@@ -9,11 +9,32 @@
         android:name="com.sabrina.logincliente.ui.FragmentMain"
         tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_fragmentMain2_to_fragmentCreacionCliente2"
+            android:id="@+id/action_fragmentMain_to_fragmentIngresarTelefono"
+            app:destination="@id/fragmentIngresarTelefono" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentCreacionCliente"
             app:destination="@id/fragmentCreacionCliente" />
     </fragment>
     <fragment
         android:id="@+id/fragmentCreacionCliente"
         android:name="com.sabrina.logincliente.ui.FragmentCreacionCliente"
         tools:layout="@layout/fragment_creacion_cliente" />
+    <fragment
+        android:id="@+id/fragmentIngresarTelefono"
+        android:name="com.sabrina.logincliente.ui.FragmentIngresarTelefono"
+        android:label="fragment_ingresar_telefono"
+        tools:layout="@layout/fragment_ingresar_telefono" >
+        <action
+            android:id="@+id/action_fragmentIngresarTelefono_to_fragmentVerificacion"
+            app:destination="@id/fragmentVerificacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentVerificacion"
+        android:name="com.sabrina.logincliente.ui.FragmentVerificacion"
+        android:label="fragment_verificacion"
+        tools:layout="@layout/fragment_verificacion" >
+        <action
+            android:id="@+id/action_fragmentVerificacion_to_fragmentCreacionCliente"
+            app:destination="@id/fragmentCreacionCliente" />
+    </fragment>
 </navigation>

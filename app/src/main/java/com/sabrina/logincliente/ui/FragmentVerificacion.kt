@@ -1,33 +1,46 @@
 package com.sabrina.logincliente.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.*
 import com.sabrina.logincliente.R
+import com.sabrina.logincliente.data.DataSourceAutenticacion
+import com.sabrina.logincliente.domain.RepoAutenticacionImpl
+import com.sabrina.logincliente.valueobject.Resource
+import com.sabrina.logincliente.viewmodels.ViewModelAutenticacion
+import com.sabrina.logincliente.viewmodels.ViewModelFactoryAutenticacion
+import kotlinx.android.synthetic.main.fragment_verificacion.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentVerificacion.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentVerificacion : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var storedVerificationId: String
+
+
+    //se le asigna este view model al fragment
+    private val viewModel by viewModels<ViewModelAutenticacion> {
+        ViewModelFactoryAutenticacion(
+            RepoAutenticacionImpl(
+                DataSourceAutenticacion()
+            )
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        requireArguments().let {
+            // uid = it.getString("uid")!!
+            storedVerificationId= it.getString("verificationId")!!
         }
+
+
     }
 
     override fun onCreateView(
@@ -38,23 +51,48 @@ class FragmentVerificacion : Fragment() {
         return inflater.inflate(R.layout.fragment_verificacion, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentVerificacion.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentVerificacion().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button_verificar.setOnClickListener{
+            var otp=id_otp.text.toString()
+            if(!otp.isEmpty()){
+                val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
+                    storedVerificationId.toString(), otp)
+                autenticacion_telefono_firebase(credential)
+            }else{
+                Toast.makeText(requireContext(),"Ingrese codigo de verificación",Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
+    fun onNavigateToCreacionCliente() {
+        findNavController().navigate(R.id.fragmentCreacionCliente)
+    }
+
+    fun autenticacion_telefono_firebase(credential: PhoneAuthCredential) {
+        viewModel.autenticarTelefono(credential).observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is Resource.Loading -> {
+                      progressBarVerif.visibility = View.VISIBLE
+                }
+                is Resource.Success -> {
+                    progressBarVerif.visibility = View.GONE
+                    onNavigateToCreacionCliente()
+                }
+                is Resource.Failure -> {
+                    progressBarVerif.visibility = View.GONE
+                    showAlert()
                 }
             }
+        })
+    }
+
+    private fun showAlert() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }
