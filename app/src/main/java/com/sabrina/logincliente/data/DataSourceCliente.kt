@@ -1,14 +1,16 @@
 package com.sabrina.logincliente.data
 
-import android.net.Uri
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.sabrina.logincliente.data.model.Cliente
 import com.sabrina.logincliente.valueobject.Resource
+import kotlinx.coroutines.tasks.await
+import java.util.*
 
 class DataSourceCliente {
 
-    val db = Firebase.database
-    val reference = db.getReference("clientes")
+    private lateinit var database: DatabaseReference
 
 
     ////////////////////////////////// ADD /////////////////////////////////////
@@ -16,14 +18,22 @@ class DataSourceCliente {
      * AÑADIR CLIENTE A FIREBASE REALTIME DATABASE
      */
     suspend fun crearCliente(
-        filePath: Uri,
-        id_regalo: String,
-        id_user: String
+        nombre: String,
+        apellido: String,
+        edad: String,
+        fecha_nac: String
     ): Resource<Boolean> {
 
-        return Resource.Success(true)
-        //  reference.setValue("")
+        val id: String = UUID.randomUUID().toString().replace("-", "");
+        val cliente = Cliente(id, nombre, apellido, edad, fecha_nac)
 
+        try {
+            database = Firebase.database.reference
+            database.child("cliente").child(cliente.id).setValue(cliente).await()
 
+            return Resource.Success(true)
+        } catch (e: Exception) {
+            return Resource.Failure(e)
+        }
     }
 }

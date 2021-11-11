@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "604655366129-0d7fvfau0cie5ibql83qp6b84niidc6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sabrina.logincliente",
+            "certificate_hash": "77bd2c24af68442ebd6bc862d19a9a9ee0443134"
+          }
+        },
+        {
           "client_id": "604655366129-6frmlir7dhiq1991v3dop8lo1fj6i48s.apps.googleusercontent.com",
           "client_type": 3
         }

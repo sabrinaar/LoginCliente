@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginCliente</string>
+    <string name="app_name">Login Cliente</string>
     <string name="titulo_login">Bienvenido/a!</string>
     <string name="iniciar_sesion">Iniciar sesión con:</string>
     <string name="login_facebook">Facebook</string>

@@ -6,8 +6,9 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13125" />
         <entry key="app/src/main/res/drawable/background_gradiente.xml" value="0.21875" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.21388888888888888" />
+        <entry key="app/src/main/res/drawable/forget.xml" value="0.13125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_creacion_cliente.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_creacion_cliente.xml" value="0.2826086956521739" />
         <entry key="app/src/main/res/layout/fragment_ingresar_telefono.xml" value="0.2876712328767123" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_verificacion.xml" value="0.25" />

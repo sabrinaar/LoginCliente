@@ -49,7 +49,7 @@ class FragmentIngresarTelefono : Fragment() {
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
                 Log.d("TAG", "onVerificationCompleted:$credential")
-                findNavController().navigate(R.id.fragmentCreacionCliente)
+
 
             }
 
