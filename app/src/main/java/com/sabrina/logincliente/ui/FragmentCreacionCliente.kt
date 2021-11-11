@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.sabrina.logincliente.R
 import com.sabrina.logincliente.data.DataSourceCliente
 import com.sabrina.logincliente.domain.RepoClienteImpl
+import com.sabrina.logincliente.utils.DatePickerFragment
 import com.sabrina.logincliente.valueobject.Resource
 import com.sabrina.logincliente.viewmodels.ViewModelCliente
 import com.sabrina.logincliente.viewmodels.ViewModelFactoryCliente
@@ -45,6 +46,10 @@ class FragmentCreacionCliente : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //get data
 
+        fecha_nacimiento.setOnClickListener{
+            showDatePickerDialog()
+        }
+
         button_crear_cliente.setOnClickListener{
             viewModel.crearCliente(nombre.text.toString(), apellido.text.toString(), edad.text.toString(), fecha_nacimiento.text.toString()).observe(viewLifecycleOwner, Observer { result ->
                 when (result) {
@@ -53,11 +58,11 @@ class FragmentCreacionCliente : Fragment() {
                     }
                     is Resource.Success -> {
                         progressBar_add_cliente.visibility = View.GONE
-                        showAlert("Cliente creado con éxito!")
+                        showAlert("","Cliente creado con éxito!")
                     }
                     is Resource.Failure -> {
                         progressBar_add_cliente.visibility = View.GONE
-                        showAlert("Se ha producido un error al crear el cliente")
+                        showAlert("Error","Se ha producido un error al crear el cliente")
                     }
                 }
             })
@@ -65,9 +70,18 @@ class FragmentCreacionCliente : Fragment() {
 
     }
 
-    private fun showAlert(mensaje:String) {
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(childFragmentManager, "datePicker")
+    }
+
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
+        fecha_nacimiento.setText("$day/$month/$year")
+    }
+
+    private fun showAlert(titulo:String,mensaje:String) {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Error")
+        builder.setTitle(titulo)
         builder.setMessage(mensaje)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()

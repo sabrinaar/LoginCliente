@@ -59,6 +59,8 @@ class FragmentMain : Fragment() {
         }
 
         button_facebook.setOnClickListener {
+
+
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
             LoginManager.getInstance().registerCallback(callbackManager,
                 object : FacebookCallback<LoginResult> {
