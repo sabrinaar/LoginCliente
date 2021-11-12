@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="500dp"
             android:layout_height="350dp"
-            android:src="@drawable/i3" />
+            android:src="@drawable/image2" />
 
         <ProgressBar
             android:id="@+id/progressBar_add_cliente"

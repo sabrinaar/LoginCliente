@@ -9,16 +9,20 @@
         android:name="com.sabrina.logincliente.ui.FragmentMain"
         tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_fragmentMain_to_fragmentIngresarTelefono"
-            app:destination="@id/fragmentIngresarTelefono" />
-        <action
             android:id="@+id/action_fragmentMain_to_fragmentCreacionCliente"
             app:destination="@id/fragmentCreacionCliente" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentIngresarTelefono"
+            app:destination="@id/fragmentIngresarTelefono" />
     </fragment>
     <fragment
         android:id="@+id/fragmentCreacionCliente"
         android:name="com.sabrina.logincliente.ui.FragmentCreacionCliente"
-        tools:layout="@layout/fragment_creacion_cliente" />
+        tools:layout="@layout/fragment_creacion_cliente" >
+        <action
+            android:id="@+id/action_fragmentCreacionCliente_to_fragmentMain"
+            app:destination="@id/fragmentMain" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentIngresarTelefono"
         android:name="com.sabrina.logincliente.ui.FragmentIngresarTelefono"
@@ -26,7 +30,9 @@
         tools:layout="@layout/fragment_ingresar_telefono" >
         <action
             android:id="@+id/action_fragmentIngresarTelefono_to_fragmentVerificacion"
-            app:destination="@id/fragmentVerificacion" />
+            app:destination="@id/fragmentVerificacion"
+            app:popUpTo="@id/fragmentVerificacion"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragmentVerificacion"
@@ -35,6 +41,8 @@
         tools:layout="@layout/fragment_verificacion" >
         <action
             android:id="@+id/action_fragmentVerificacion_to_fragmentCreacionCliente"
-            app:destination="@id/fragmentCreacionCliente" />
+            app:destination="@id/fragmentCreacionCliente"
+            app:popUpTo="@id/fragmentCreacionCliente"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

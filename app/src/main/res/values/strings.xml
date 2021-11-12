@@ -8,5 +8,8 @@
     <string name="facebook_app_id">292677292860521</string>
     <string name="fb_login_protocol_scheme">fb292677292860521</string>
 
+    //ingresar telefono
+    <string name="telefono">telefono</string>
+
 
 </resources>

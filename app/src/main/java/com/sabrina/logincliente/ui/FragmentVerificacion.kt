@@ -66,7 +66,7 @@ class FragmentVerificacion : Fragment() {
 
     }
     fun onNavigateToCreacionCliente() {
-        findNavController().navigate(R.id.fragmentCreacionCliente)
+        findNavController().navigate(R.id.action_fragmentVerificacion_to_fragmentCreacionCliente)
     }
 
     fun autenticacion_telefono_firebase(credential: PhoneAuthCredential) {

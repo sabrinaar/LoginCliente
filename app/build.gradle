@@ -54,8 +54,8 @@ dependencies {
     //facebook
     implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
     // Navigation Components
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // ViewModel y LiveData

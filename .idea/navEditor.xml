@@ -13,9 +13,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="565" />
-                            <option name="y" value="-99" />
+                            <option name="x" value="573" />
+                            <option name="y" value="62" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragmentCreacionCliente_to_fragmentMain">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -25,18 +34,9 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="58" />
-                            <option name="y" value="-262" />
+                            <option name="x" value="112" />
+                            <option name="y" value="-242" />
                           </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_fragmentIngresarTelefono_to_fragmentVerificacion">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -52,6 +52,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_fragmentMain_to_fragmentCreacionCliente">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_fragmentMain_to_fragmentIngresarTelefono">
                               <value>
                                 <LayoutPositions />
@@ -67,8 +72,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="304" />
-                            <option name="y" value="-281" />
+                            <option name="x" value="404" />
+                            <option name="y" value="-237" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -28,7 +28,7 @@
                     android:layout_width="500dp"
                     android:layout_height="350dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/i1" />
+                    android:src="@drawable/image1" />
 
 
                 <ProgressBar

@@ -103,7 +103,7 @@ class FragmentIngresarTelefono : Fragment() {
     fun onNavigateToVerificacion(storedVerificationId:String) {
         val bundle = Bundle()
         bundle.putString("verificationId", storedVerificationId )
-        findNavController().navigate(R.id.fragmentVerificacion,  bundle)
+        findNavController().navigate(R.id.action_fragmentIngresarTelefono_to_fragmentVerificacion,  bundle)
     }
 
 

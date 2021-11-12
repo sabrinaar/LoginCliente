@@ -84,7 +84,7 @@ class FragmentMain : Fragment() {
     }
 
     fun onNavigateToIngresarTel() {
-        findNavController().navigate(R.id.fragmentIngresarTelefono)
+        findNavController().navigate(R.id.action_fragmentMain_to_fragmentIngresarTelefono)
     }
 
     fun autenticacion_facebook_firebase(token: String) {
